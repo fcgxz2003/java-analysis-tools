@@ -1,0 +1,372 @@
+<?xml version="1.0"?>
+
+<ruleset name="metricList">
+
+    <rule name="accessToForeignDataMetric"
+          language="java"
+          message="该函数使用的外部变量的数量超过3个，函数所在类的封装性遭到破坏，请减少外部变量的使用数目"
+          class="dlut.edu.metric.accessToForeignDataMetric">
+        <description>
+            AccessToForeignDataMetric (ATFD). 该度量是类的封装性度量，根据类中函数使用外部变量的数量判定类的封装性是否被破坏。
+            一般来说，类中函数使用的外部变量数目不允许超过3个。 具体计算案例可以参考example。
+        </description>
+        <priority>3</priority>
+        <example>
+            <![CDATA[
+            class accesstoForeignDataMetricTest{
+                public void right_test(){
+                    /*该函数中仅仅包含的外部变量的数目不超过3个，是能够保证类的封装性的*/
+                    int e = TestClass.id;
+                    int b = TestClass.id;
+                    int c = TestClass.id;
+                }
+                public void wrong_test(){
+                    /*该函数中仅仅包含的外部变量的数目超过3个，破坏了类本身的封装性*/
+                    int a = TestClass.id;
+                    int b = TestClass.id;
+                    int c = TestClass.id;
+                    int d = TestClass.id;
+                }
+        }
+        class TestClass{
+            public static int id = 2;
+        }
+        ]]>
+        </example>
+    </rule>
+
+    <rule name="classFanOutMetric"
+          language="java"
+          message="该类中的使用的外部类的数量已经超过20个，应该适当地降低对外部类的使用频数从而保证类的内聚性"
+          class="dlut.edu.metric.classFanOutMetric">
+        <description>
+            Class Fan Out (CFO). 该度量是类的封装性度量，根据类中使用的外部类的数量判断类的内聚性是否被破坏。
+            一般来说，类中使用的外部类的数目不允许超过20个。 具体计算案例可以参考example。
+        </description>
+        <priority>3</priority>
+        <example>
+            <![CDATA[
+            public class Foo { // total 8
+            public Set set = new HashSet(); // +2
+            public Map map = new HashMap(); // +2
+            public String string = ""; // from java.lang -> does not count by default
+            public Double number = 0.0; // from java.lang -> does not count by default
+            public int[] intArray = new int[3]; // primitive -> does not count
+            @Deprecated // from java.lang -> does not count by default
+            @Override // from java.lang -> does not count by default
+            public void foo(List list) throws Exception { // +1 (Exception is from java.lang)
+                throw new IOException(); // +1
+            }
+            public int getMapSize() {
+                return map.size(); // +1 because it uses the Class from the 'map' field
+            }
+        ]]>
+        </example>
+    </rule>
+
+    <rule name="cognitiveComplexityMetric"
+          language="java"
+          message="该函数的识别负责度超过15，请减少循环、判断等语句的使用从而增强代码的可读性"
+          class="dlut.edu.metric.cognitiveComplexityMetric">
+        <description>
+            Cognitive Complexity (CC). 该度量是代码可读性的度量。其中，代码可读性度量的计算方法如下：
+            1. 普通增量[+1]: if, else if, else, ternary operator, switch, for, foreach, while, do while,
+            catch, goto LABEL, break LABEL, continue LABEL, sequences of binary logical operators,
+            each method in a recursion cycle
+            2. Nest值[+1]: (1) if, else if, else, ternary operator (2) switch (3) for, foreach
+            (4) while, do while (5) catch (6) nested methods and method-like structures such as lambdas
+            3. Nest增量{即嵌套, [+1]}: (1) if, ternary operator (2) switch (3) for, foreach (4) while, do while
+            (5) catch
+            一般来说，代码中函数的认知复杂度不允许超过15。具体计算案例可以参考example。
+        </description>
+        <priority>2</priority>
+        <example>
+            <![CDATA[
+            class Foo {
+                void myMethod () {
+                    try {
+                        if (condition1) { // +1
+                            for (int i = 0; i < 10; i++) { // +2 (nesting=1)
+                                while (condition2) { } // +3 (nesting=2)
+                            }
+                        }
+                    } catch (ExcepType1 | ExcepType2 e) { // +1
+                        if (condition2) { } // +2 (nesting=1)
+                    }
+                } // Cognitive Complexity 9
+            }
+        ]]>
+        </example>
+    </rule>
+
+    <rule name="cyclomaticComplexityMetric"
+          language="java"
+          message="该函数的圈复杂度超过50，请减少循坏或者判断语句以增强可读性"
+          class="dlut.edu.metric.cyclomaticComplexityMetric">
+        <description>
+            CyclomaticComplexity (CYCLO). CC是代码结构复杂性的度量。其计算方式如下：
+            1. 方法调用[+1].
+            2. 逻辑操作[+1]. if, case, catch, throw, do, while, for, break, continue
+            3. 废操作[+0]. else, finally and default don’t count
+            4. 二进制操作[+1]. 与、
+            一般来说，代码中函数的CYCLO不允许超过50。具体计算案例可以参考example。
+        </description>
+        <priority>2</priority>
+        <example>
+            <![CDATA[
+            class Foo {
+              void baseCyclo() {                // Cyclo = 1
+                highCyclo();
+              }
+              void highCyclo() {                // Cyclo = 10
+                int x = 0, y = 2;
+                boolean a = false, b = true;
+                if (a && (y == 1 ? b : true)) { // +3
+                  if (y == x) {                 // +1
+                    while (true) {              // +1
+                      if (x++ < 20) {           // +1
+                        break;                  // +1
+                      }
+                    }
+                  } else if (y == t && !d) {    // +2
+                    x = a ? y : x;              // +1
+                  } else {
+                    x = 2;
+                  }
+                }
+              }
+            }
+        ]]>
+        </example>
+    </rule>
+
+    <rule name="lineOfCodeClassMetric"
+          language="java"
+          message="该类的代码总行数超过1000行，建议分解为多个类"
+          class="dlut.edu.metric.lineOfCodeClassMetric">
+        <description>
+            类的代码行数度量,类的代码长度一般不允许超过1000行。
+        </description>
+        <priority>1</priority>
+    </rule>
+
+    <rule name="lineOfCodeMetric"
+          language="java"
+          message="该函数的代码总行数超过200行，建议分解成多个函数"
+          class="dlut.edu.metric.lineOfCodeMetric">
+        <description>
+            函数的代码长度度量，函数的代码长度一般不允许超过200行。
+        </description>
+        <priority>1</priority>
+    </rule>
+
+    <rule name="nonCommentingSourceStatementMetric"
+          language="java"
+          message="该函数的语句数量较多，可以适当将其分解为两个函数"
+          class="dlut.edu.metric.nonCommentingSourceStatementMetric">
+        <description>
+            NonCommentingSourceStatementMetric (NCSS). 该度量是类的操作量的度量，主要通过类中的分号以及开括号决定，具体计算方法如下:
+            1. 逻辑操作[+1]. if, else, while, do, for, switch, break, continue, return, throw, synchronized,
+            catch, finally
+            2. 变量赋值和声明[+1].
+            3. 类、接口、枚举、注释[+1].
+            一般来说，代码中函数的NCSS不允许超过200。具体计算案例可以参考example。
+        </description>
+        <priority>1</priority>
+        <example>
+            <![CDATA[
+            import java.util.Collections;       // +0
+            import java.io.IOException;         // +0
+            class Foo {                         // +1, total Ncss = 12
+              public void bigMethod()           // +1
+                  throws IOException {
+                int x = 0, y = 2;               // +1
+                boolean a = false, b = true;    // +1
+                if (a || b) {                   // +1
+                  try {                         // +1
+                    do {                        // +1
+                      x += 2;                   // +1
+                    } while (x < 12);
+                    System.exit(0);             // +1
+                  } catch (IOException ioe) {   // +1
+                    throw new PatheticFailException(ioe); // +1
+                  }
+                } else {
+                  assert false;                 // +1
+                }
+              }
+            }
+            ]]>
+        </example>
+    </rule>
+
+    <rule name="NPathComplexityMetric"
+          language="java"
+          message="该函数的分支较多，请适当减少条件分支的数量"
+          class="dlut.edu.metric.NPathComplexityMetric">
+        <description>
+            NPathComplexityMetric(NPath). 该度量是函数分支数量的度量，其具体计算方法如下:
+            1. 条件与循环语句[+1], for, do and while.
+            2. 层叠操作[+1], if .. else if ..
+            3. 条件选择[+1], switch-case.
+            4. 特殊操作符[+1], ?:.
+            5. 一场操作[+1], try .. catch.
+            6. 返回[+1], return
+            一般来说，代码中函数的NPath不允许超过1024。具体计算案例可以参考example。
+        </description>
+        <priority>3</priority>
+        <example>
+            <![CDATA[
+            public class NPathComplexityMetricTest {
+                public void fun(boolean a, boolean b, boolean c){ // NPath = 6
+                    int path = 0;
+                    if (a){
+                        path = 1;
+                    }
+                    else {
+                        path = 2;
+                    }
+                    path = 3;
+                    if (b){
+                        path = 4;
+                    }
+                    else if (c) {
+                        path = 5;
+                    }
+                    path = 6;
+                }
+            }
+            ]]>
+        </example>
+    </rule>
+
+    <rule name="numberOfAccessorMethodMetric"
+          language="java"
+          message="类中的访问器函数的数量过少，请适当增加访问器函数以增强代码的封装性"
+          class="dlut.edu.metric.numberOfAccessorMethodMetric">
+        <description>
+            NumberOfAccessorMethodMetric (NOAM). 该度量是类内访问器函数的数量。
+            这种函数的数量越多，类的封装性越好，但是一般不能为单独的度量标准，该种函数的数量与变量的数量是有关的。
+            访问器函数定义见example。
+        </description>
+        <priority>1</priority>
+        <example>
+            <![CDATA[
+            public class numberOfAccessorMethodMetricTest {
+                                           // NOAM = 3
+                public static int a;
+                public int b;
+                private int c;
+
+                public int getC() { // +1
+                    return c;
+                }
+
+                public void setC(int c) { // +1
+                    this.c = c;
+                }
+
+                public int getB() { // +1
+                    return b;
+                }
+            }
+            ]]>
+        </example>
+    </rule>
+
+    <rule name="numberOfPublicAttributesMetric"
+          language="java"
+          message="该类中包含的公共变量过多，建议将其分割到两个类中"
+          class="dlut.edu.metric.numberOfPublicAttributesMetric">
+        <description>
+            NumberOfPublicAttributes (NoPA). 该度量是类中公共变量的数量。
+            一般来说，一个类中公共变量的数量不允许超过40个。
+        </description>
+        <priority>1</priority>
+        <example>
+            <![CDATA[
+            public class numberOfPublicAttributesMetricTest {
+                                            // NOPA = 2
+                public static int a; // +1
+                public int b; //+1
+                private int c;
+            }
+            ]]>
+        </example>
+    </rule>
+
+    <rule name="tightClassCohesionMetric"
+          language="java"
+          message="该类中函数间的耦合关系较差，建议将该类拆分为多个子类"
+          class="dlut.edu.metric.tightClassCohesionMetric">
+        <description>
+            TightClassCohesionMetric (TCC). 该度量是类的内聚系数度量。
+            当类中函数间的关系耦合度较低时，即函数之间对于类内变量的访问耦合度较低时，需要将类拆分成多个耦合读较高的类
+            一般来说，一个类的内聚性不允许低于0.5。具体案例见example.
+        </description>
+        <priority>3</priority>
+        <example>
+            <![CDATA[
+            public class TightClassCohesionMetricTest { // TCC 0.3333
+                public int a;
+                private int b;
+                public int getA() {
+                    return a;
+                }
+                public void setC(int a) {
+                    this.a = a;
+                }
+                public int getB() {
+                    return b;
+                }
+                public void setB(int b) {
+                    this.b = b;
+                }
+            }
+            public class newTightClassCohesionMetricTestA{ // TCC = 1
+                public int a;
+                public int getA() {
+                    return a;
+                }
+
+                public void setC(int a) {
+                    this.a = a;
+                }
+            }
+            public class newTightClassCohesionMetricTestB{ // TCC = 1
+                public int b;
+                public int getB() {
+                    return b;
+                }
+                public void setB(int b) {
+                    this.b = b;
+                }
+            }
+            ]]>
+        </example>
+    </rule>
+
+    <rule name="weightedMethodCountMetric"
+          language="java"
+          message="该类中的函数圈复杂度过高，建议降低类中的各个函数的圈复杂度"
+          class="dlut.edu.metric.weightedMethodCountMetric">
+        <description>
+            WeightedMethodCountMetric (WMC). 该度量是类的圈复杂度度量，即类中所有函数的圈复杂度之和。
+            关于圈复杂度，请参考cyclomaticComplexityMetric (CYCLO)
+        </description>
+        <priority>3</priority>
+    </rule>
+
+    <rule name="weightOfClassMetric"
+          language="java"
+          message="类中功能函数太少导致类的内聚性被破坏，建议在类中增加功能函数"
+          class="dlut.edu.metric.weightOfClassMetric">
+        <description>
+            WeightOfClassMetric (WoC). 该度量是类的一个内聚性指标度量，计算方法为类中的功能函数除以类中的函数总量。
+            其中功能函数不包括get和set函数。
+            WoC的值一般不允许低于0.3。
+        </description>
+        <priority>3</priority>
+    </rule>
+
+</ruleset>

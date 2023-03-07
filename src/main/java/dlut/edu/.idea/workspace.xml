@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="de4ea2e4-3a84-40f7-9bad-4f918fb5cab9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../../../.idea/artifacts/java_analysis_tool_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../.idea/java-analysis-tool.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metric/NPathComplexityMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/metric/NPathComplexityMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metric/accessToForeignDataMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/metric/accessToForeignDataMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metric/classFanOutMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/metric/classFanOutMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metric/cognitiveComplexityMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/metric/cognitiveComplexityMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metric/cyclomaticComplexityMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/metric/cyclomaticComplexityMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metric/lineOfCodeClassMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/metric/lineOfCodeClassMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metric/lineOfCodeMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/metric/lineOfCodeMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metric/nonCommentingSourceStatementMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/metric/nonCommentingSourceStatementMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metric/numberOfAccessorMethodMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/metric/numberOfAccessorMethodMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metric/numberOfPublicAttributesMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/metric/numberOfPublicAttributesMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metric/tightClassCohesionMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/metric/tightClassCohesionMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metric/weightOfClassMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/metric/weightOfClassMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metric/weightedMethodCountMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/metric/weightedMethodCountMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pmdAnalysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/pmdAnalysis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pmdMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rule/testMetric.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rule/testRule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/category/java/metricList.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/category/xpath/myXpathRuleSet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-custom/normalMetric.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/android.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/basic.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/braces.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/clone.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/codesize.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/comments.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/controversial.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/coupling.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/design.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/empty.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/finalizers.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/imports.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/j2ee.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/javabeans.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/junit.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/logging-jakarta-commons.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/logging-java.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/metrics.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/migrating.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/migrating_to_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/migrating_to_14.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/migrating_to_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/migrating_to_junit4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/naming.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/optimizations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/quickstart.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/rulesets.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/strictexception.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/sunsecure.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/typeresolution.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/unnecessary.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../resources/rulesets/xpath-pmd/unusedcode.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/tempTest/metricTest/NPathComplexityMetricTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/tempTest/metricTest/TightClassCohesionMetricTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/tempTest/metricTest/WeightOfClassMetricTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/tempTest/metricTest/WeightedMethodCountMetricTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/tempTest/metricTest/accesstoForeignDataMetricTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/tempTest/metricTest/classFanOutMetricTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/tempTest/metricTest/cognitiveComplexityMetricTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/tempTest/metricTest/cyclomaticComplexityMetric.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/tempTest/metricTest/lineOfCodeMetricTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/tempTest/metricTest/nonCommentingSourceStatementMetricTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/tempTest/metricTest/numberOfAccessorMethodMetricTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/tempTest/metricTest/numberOfPublicAttributesMetricTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/tempTest/otherTest/A.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/tempTest/otherTest/B.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/tempTest/otherTest/JarRead.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
+  </component>
+  <component name="ProjectId" id="2GqNxG9ARq6tyQo6DCxTnHD3Oih" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="de4ea2e4-3a84-40f7-9bad-4f918fb5cab9" name="Changes" comment="" />
+      <created>1667112398399</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667112398399</updated>
+      <workItem from="1667112399862" duration="7000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
